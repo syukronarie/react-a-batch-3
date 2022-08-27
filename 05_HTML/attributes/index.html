@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.page-title {
+				font-family: Roboto, Avenir;
+			}
+			.subheadline {
+				font-family: Roboto, Avenir;
+				margin-top: 2em;
+			}
+			.page-title + .subheadline {
+				margin-top: 0;
+			}
+			.footnote {
+				font-size: 70%;
+			}
+			.poem-title,
+			.toc-title {
+				font-weight: normal;
+				text-transform: uppercase;
+				margin-bottom: 0;
+			}
+			#toc ol {
+				margin: 0;
+				list-style: upper-roman;
+			}
+			#toc a {
+				color: black;
+				text-decoration-thickness: 0.5px;
+				text-underline-offset: 3px;
+			}
+			.byline {
+				display: block;
+				margin-top: 0;
+				font-style: italic;
+			}
+			.poem {
+				font-family: Lora, Georgia, serif;
+			}
+			.quote {
+				border-left: 1px solid black;
+				padding-left: 1rem;
+				margin-left: 1rem;
+			}
+			.quote .byline {
+				margin-left: 50%;
+			}
+			.quote .byline::before {
+				content:'— ';
+			}
+			ul li {
+				padding-inline-start: 0.5em;
+			}
+			ul li::marker {
+				content: "🐝";
+			}
+
+			* {box-sizing: border-box;}
+			html {
+				font-family: Lora, Georgia, serif; 
+				margin: 2em;
+				font-size: 120%;
+				line-height: 1.5;
+			}
+			body {
+				margin: 2rem 1rem 4rem;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="page-title">Bees</h1>
+
+		<section id="toc">
+			<h3 class="toc-title">Table of Contents</h3>
+			<ol>
+				<li><a href="#beekeeping">Beekeeping</a></li>
+				<li><a href="#art-and-lit">In art and literature</a></li>
+				<li><a href="#thoughts">Thoughts on bees</a></li>
+				<li><a href="#kinds-of-bees">Kinds of bees</a></li>
+			</ol>
+		</section>
+			
+		<section id="beekeeping">
+			<h2 class="subheadline">Beekeeping</h2>
+			<p>Humans have kept honey bee colonies, commonly in hives, for millennia. Beekeepers collect honey, beeswax, propolis, pollen, and royal jelly from hives; bees are also kept to pollinate crops and to produce bees for sale to other beekeepers.</p>
+			<p>Depictions of humans collecting honey from wild bees date to 15,000 years ago; efforts to domesticate them are shown in Egyptian art around 4,500 years ago.<sup class="footnote">[91]</sup> Simple hives and smoke were used; jars of honey were found in the tombs of pharaohs such as Tutankhamun. From the 18th century, European understanding of the colonies and biology of bees allowed the construction of the moveable comb hive so that honey could be harvested without destroying the colony.</p>
+		<section>
+				
+		<section id="art-and-lit">
+			<h2 class="subheadline">In art and literature</h2>
+			<h3 class="poem-title">Bee An Apple</h3>
+			<p class="byline">by Paul Cameron Brown</p>
+			<pre class="poem">
+					The taste of an apple,
+						the cringing of a bee
+					as sun stops turning
+						a ladle over their skins;
+					the fire gold stains
+						on apple's skin,
+					the honey yellow, black bits
+						a hornet wrinkles in.
+			</pre>
+		</section>
+				
+		<section id="thoughts"> 
+			<h2 class="subheadline">Thoughts on bees</h2>
+			<blockquote class="quote">I’ve said this over and over, but I’ll say it a million more times — I’m concerned more about the death of a bee than I am about terrorism. Because we’re losing hives and bees by the millions because of such strong pesticides.
+				<cite class="byline">Patty Smith</cite>
+			</blockquote>
+		</section>
+			
+			<section id="kinds-of-bees">
+				<h2 class="subheadline">Kinds of Bees</h2>
+				<ul>
+					<li>honey bees</li>
+					<li>bumble bees</li>
+					<li>leafcutter bees</li>
+					<li>mason bees</li>
+					<li>mining bees</li>
+					<li>flower bees</li>
+				</ul>
+			</section>
+	</body>
+</html>
