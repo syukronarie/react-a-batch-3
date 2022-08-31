@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.container p::first-letter {
+				color: orange;
+				font-size: 32px;
+			}
+
+			.container p::first-line {
+				background-color: lightblue;
+			}
+
+			.content {
+				border: 2px solid black;
+				margin: auto 20px;
+				padding: 10px;
+			}
+
+			.content p::before {
+				position: relative;
+				content: "pseudo::before";
+				background-color: blue;
+				/* width: 20px;
+				height: 10px; */
+			}
+
+			.content p::after {
+				content: "pseudo::after";
+				background-color: red;
+			}
+
+			::selection {
+				background-color: yellow;
+			}
+
+			::marker {
+				color: blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="flex">
+			<div class="box slabo center bg-red">
+				Saya adalah box red berukuran 100 px
+			</div>
+			<div class="box slabo center bg-blue">
+				Saya adalah box blue berukuran 100 px
+			</div>
+		</div>
+		<div class="box w-350 no-padding slabo bg-green rounded">
+			Saya adalah box green berukuran 350 px
+		</div>
+
+		<div class="container">
+			<ul>
+				<li>a</li>
+				<li>b</li>
+				<li>c</li>
+				<li>d</li>
+				<li>e</li>
+			</ul>
+
+			<p>
+				Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam
+				reprehenderit dolorem ex hic perspiciatis, inventore at assumenda
+				deleniti suscipit blanditiis. Magni ad, magnam dolore repellat labore
+				iste optio, veritatis aperiam, cumque a illo molestias accusantium
+				soluta aspernatur itaque, delectus. Cumque officia praesentium et sint
+				autem, dolore quos ullam perferendis odio neque earum asperiores? Illum
+				error quidem necessitatibus nam pariatur nesciunt perferendis,
+				repellendus porro soluta perspiciatis velit obcaecati dolorem? Ipsum
+				voluptatum deserunt iusto, praesentium incidunt commodi aut quis!
+				Similique autem reprehenderit atque iusto et officia culpa assumenda
+				expedita eos libero nobis saepe illum fugiat doloremque voluptas omnis
+				repellendus asperiores, fuga quidem!
+			</p>
+		</div>
+
+		<div class="content">
+			<p>Hello world!</p>
+		</div>
+	</body>
+</html>

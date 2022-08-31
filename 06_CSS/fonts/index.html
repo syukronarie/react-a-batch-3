@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Font</title>
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+			.robot-import {
+				font-family: "Roboto Mono", monospace;
+			}
+			.serif {
+				font-family: serif;
+			}
+			.sans-serif {
+				font-family: sans-serif;
+			}
+			.bolder {
+				font-weight: bolder;
+			}
+			.bold {
+				font-weight: bold;
+				font-style: oblique;
+			}
+			.lighter {
+				font-style: italic;
+				font-weight: lighter;
+			}
+			.light {
+				font-weight: light;
+			}
+			/* size in css https://www.w3.org/Style/Examples/007/units.en.html */
+			p {
+				font-size: larger;
+				font-family: sans-serif;
+			}
+
+			/* Fluid Typography https://css-tricks.com/snippets/css/fluid-typography/ */
+
+			/* Style inherit */
+			span {
+				color: blue;
+				border: 1px solid black;
+			}
+
+			.extra span {
+				color: inherit;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1 class="serif">Hello, this Serif</h1>
+			<h1 class="sans-serif">Hello, this sans-Serif</h1>
+			<h1 class="roboto-import">Hello, this Roboto Monospace</h1>
+		</div>
+
+		<div>
+			<p class="lighter">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos,
+				blanditiis reiciendis cum aspernatur in.
+			</p>
+			<p class="light">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos,
+				blanditiis reiciendis cum aspernatur in.
+			</p>
+			<p class="bold">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos,
+				blanditiis reiciendis cum aspernatur in.
+			</p>
+			<p class="bolder">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos,
+				blanditiis reiciendis cum aspernatur in.
+			</p>
+		</div>
+
+		<div class="font-inheritance">
+			<div>Disini <span>Contoh teks inherits</span> dengan span</div>
+
+			<div class="extra" style="color: red">
+				Disini <span>Contoh teks inherits</span> dengan span
+			</div>
+
+			<div style="color: red">
+				Disini <span>Contoh teks inherits</span> dengan span
+			</div>
+
+			<div class="font-variant">
+				<p class="normal">Font varian Normal</p>
+				<p class="small-caps">Font varian small-caps</p>
+			</div>
+		</div>
+	</body>
+</html>
