@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<!-- reference: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes -->
+	<style>
+		.pseudo-active:active {
+			color: green;
+		}
+
+		.pseudo-hover {
+			color: green;
+		}
+
+		.pseudo-hover:hover {
+			color: blue;
+		}
+
+		.coba-enable[type="text"]:enabled {
+			background-color: grey;
+		}
+
+		.coba-disabled[type="text"]:disabled {
+			background-color: black;
+		}
+
+		.pseudo-link:link {
+			color: blue;
+		}
+	</style>
+	<body>
+		<h1>Pseudo Class :active</h1>
+		<a class="pseudo-active" href="#">link</a>
+
+		<h1>Pseudo Class :hover</h1>
+		<a class="pseudo-hover" href="#">link</a>
+
+		<h1>Pseudo Class enabled</h1>
+		<form>
+			<input class="coba-enable" type="text" value="coba enabled" />
+		</form>
+
+		<h1>Pseudo Class disabled</h1>
+		<form>
+			<input
+				class="coba-disabled"
+				type="text"
+				value="coba enabled"
+				disabled="disabled"
+			/>
+		</form>
+
+		<h1>Pseudo class link</h1>
+		<a class="pseudo-link" href="#">link</a>
+
+		<h1>Pseudo class visited</h1>
+	</body>
+</html>
