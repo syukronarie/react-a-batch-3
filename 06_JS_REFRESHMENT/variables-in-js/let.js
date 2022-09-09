@@ -1,10 +1,12 @@
 // syntax to declare variable in JS
 // let, var, const
+// camel case
 
 // global scope
 
 // let
 let firstName = "Arie";
+
 console.log({ firstName }); // Arie
 
 if (true) {
