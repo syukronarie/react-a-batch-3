@@ -5,6 +5,7 @@ const lists = [
 	"<li>Empat</li>",
 ];
 
+// console.log(lists.join(""));
 const dom = lists.join("");
 
 document.getElementById("root").innerHTML = dom;
