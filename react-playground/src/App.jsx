@@ -41,7 +41,9 @@ class App extends React.Component {
 	}
 
 	handleDecrement() {
-		this.setState((state) => ({ count: state.count - 1 }));
+		this.setState((state) => ({
+			count: state.count !== 0 ? state.count - 1 : 0,
+		}));
 	}
 
 	handleShowCount() {
@@ -52,10 +54,18 @@ class App extends React.Component {
 		this.setState(INITIAL_STATE);
 	}
 
-	// componentDidUpdate() {
-	// 	const { count } = this.state;
-	// 	console.log({ count });
+	// componentDidMount() {
+	// 	fetch api
 	// }
+
+	componentDidUpdate() {
+		const { count } = this.state;
+		if (count === 10) {
+			setTimeout(() => {
+				alert("count 10 is maximum");
+			}, 1000);
+		}
+	}
 
 	render() {
 		return (
@@ -69,13 +79,23 @@ class App extends React.Component {
 						handleShowCount={this.handleShowCount}
 					/>
 				) : (
-					<h2>Show Count is Disabled and Successfully Reseted</h2>
+					<h2>Show Count is Disabled and Successfully Resetted</h2>
 				)}
 				<button onClick={this.handleShowCount}>
 					{this.state.showCount ? "Unshow and Reset" : "Show"}
 				</button>
-				<button onClick={this.handleIncrement}>+ Increment</button>
-				<button onClick={this.handleDecrement}>- Decrement</button>
+				<button
+					onClick={this.handleIncrement}
+					disabled={this.state.count === 10}
+				>
+					+ Increment
+				</button>
+				<button
+					onClick={this.handleDecrement}
+					disabled={this.state.count === 0}
+				>
+					- Decrement
+				</button>
 			</div>
 		);
 	}
