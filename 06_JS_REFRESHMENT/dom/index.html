@@ -1,0 +1,978 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<ul id="root"></ul>
+
+		<script src="./index.js"></script>
+	</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<script>
+			!(function () {
+				try {
+					var d = document.documentElement.classList;
+					d.remove("light-theme", "dark-theme");
+					var e = localStorage.getItem("zeit-theme");
+					if ("system" === e || (!e && true)) {
+						var t = "(prefers-color-scheme: dark)",
+							m = window.matchMedia(t);
+						m.media !== t || m.matches
+							? d.add("dark-theme")
+							: d.add("light-theme");
+					} else if (e) var x = { light: "light-theme", dark: "dark-theme" };
+					d.add(x[e]);
+				} catch (e) {}
+			})();
+		</script>
+		<style>
+			body::before {
+				content: "";
+				display: block;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background: var(--geist-background);
+				z-index: 99999;
+			}
+			.render body::before {
+				display: none;
+			}
+		</style>
+		<noscript
+			><style>
+				body::before {
+					content: none;
+				}
+			</style></noscript
+		>
+		<script>
+			if (!document.cookie || document.cookie.indexOf("isLoggedIn=1") === -1) {
+				location.replace(
+					"/login?next=" +
+						encodeURIComponent(location.pathname + location.search)
+				);
+			} else {
+				document.documentElement.classList.add("render");
+			}
+		</script>
+		<script>
+			(function () {
+				try {
+					if (document.cookie && document.cookie.indexOf("isLoggedIn=1") > -1) {
+						document.documentElement.classList.add("logged-in-on-page-load");
+					}
+				} catch (err) {}
+			})();
+		</script>
+		<title>Dashboard – Vercel</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta content="en" http-equiv="Content-Language" />
+		<link href="https://vercel.com/dashboard" rel="canonical" />
+		<link
+			crossorigin="anonymous"
+			href="https://assets.vercel.com"
+			rel="preconnect"
+		/>
+		<link
+			crossorigin="anonymous"
+			href="https://avatars.githubusercontent.com"
+			rel="preconnect"
+		/>
+		<meta content="summary" name="twitter:card" />
+		<meta content="@vercel" name="twitter:site" />
+		<meta
+			content="https://assets.vercel.com/image/upload/front/vercel/twitter-card.png"
+			name="twitter:image"
+		/>
+		<meta content="Dashboard – Vercel" property="og:title" />
+		<meta content="https://vercel.com/dashboard" property="og:url" />
+		<meta
+			content="https://assets.vercel.com/image/upload/front/vercel/twitter-card.png"
+			property="og:image"
+		/>
+		<meta
+			content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+			name="robots"
+		/>
+		<meta content="Vercel" name="apple-mobile-web-app-title" />
+		<meta content="var(--geist-background)" name="theme-color" />
+		<meta content="#000000" name="msapplication-TileColor" />
+		<link
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/57x57.png"
+			rel="apple-touch-icon"
+			sizes="57x57"
+		/>
+		<link
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/60x60.png"
+			rel="apple-touch-icon"
+			sizes="60x60"
+		/>
+		<link
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/72x72.png"
+			rel="apple-touch-icon"
+			sizes="72x72"
+		/>
+		<link
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/76x76.png"
+			rel="apple-touch-icon"
+			sizes="76x76"
+		/>
+		<link
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/114x114.png"
+			rel="apple-touch-icon"
+			sizes="114x114"
+		/>
+		<link
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/120x120.png"
+			rel="apple-touch-icon"
+			sizes="120x120"
+		/>
+		<link
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/144x144.png"
+			rel="apple-touch-icon"
+			sizes="144x144"
+		/>
+		<link
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/152x152.png"
+			rel="apple-touch-icon"
+			sizes="152x152"
+		/>
+		<link
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png"
+			rel="apple-touch-icon"
+			sizes="180x180"
+		/>
+		<link
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/favicon.ico"
+			rel="icon shortcut"
+			type="image/x-icon"
+		/>
+		<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
+		<link
+			color="#000000"
+			fetchpriority="low"
+			href="https://assets.vercel.com/image/upload/front/favicon/vercel/safari-pinned-tab.svg"
+			rel="mask-icon"
+		/>
+		<link
+			href="/atom"
+			rel="alternate"
+			title="Vercel News"
+			type="application/atom+xml"
+		/>
+		<script>
+			if (
+				!window.newVisit &&
+				document.cookie &&
+				document.cookie.indexOf("beenHere=1") !== -1
+			) {
+				document.documentElement.classList.add("inter");
+			} else {
+				window.newVisit = true;
+			}
+			setTimeout(function () {
+				document.cookie =
+					"beenHere=1;samesite=lax;expires=" +
+					new Date(Date.now() + 31 * 3600 * 24 * 1000).toGMTString();
+			});
+		</script>
+		<link
+			as="font"
+			crossorigin="anonymous"
+			href="https://assets.vercel.com/raw/upload/v1660068731/fonts/4/Inter.var.latin.woff2"
+			rel="preload"
+			type="font/woff2"
+		/>
+		<script>
+			var w = window;
+			var good = w.CSS && CSS.supports("color", "var(--v)");
+			try {
+				const i = 1;
+			} catch (e) {
+				good = 0;
+			}
+			if (!good && (!w.localStorage || !localStorage.getItem("ignore-browser")))
+				w.location = "/old-browser.html";
+		</script>
+		<meta name="next-head-count" content="38" />
+		<link
+			rel="preload"
+			href="/_next/static/css/56a4c48519f54e26.css"
+			as="style"
+		/>
+		<link
+			rel="stylesheet"
+			href="/_next/static/css/56a4c48519f54e26.css"
+			data-n-g=""
+		/>
+		<link
+			rel="preload"
+			href="/_next/static/css/c2e59be143df24e4.css"
+			as="style"
+		/>
+		<link
+			rel="stylesheet"
+			href="/_next/static/css/c2e59be143df24e4.css"
+			data-n-p=""
+		/>
+		<link
+			rel="preload"
+			href="/_next/static/css/15350c354b1f4c82.css"
+			as="style"
+		/>
+		<link
+			rel="stylesheet"
+			href="/_next/static/css/15350c354b1f4c82.css"
+			data-n-p=""
+		/>
+		<link
+			rel="preload"
+			href="/_next/static/css/3baa3b4a646bd704.css"
+			as="style"
+		/>
+		<link
+			rel="stylesheet"
+			href="/_next/static/css/3baa3b4a646bd704.css"
+			data-n-p=""
+		/>
+		<noscript data-n-css=""></noscript>
+		<script
+			defer=""
+			nomodule=""
+			src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"
+		></script>
+		<script
+			src="/_next/static/chunks/webpack-c4272d9ff11c6944.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/framework-87da67d1385d0d8f.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/main-391d249e89f8163a.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/pages/_app-fb3776912d56227a.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/0e5ba09f-65fc945249d7a266.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/88637-65cdaf4531dc3d08.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/54068-8e71dbe2bb5b2abd.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/147-0412271ca6bf32da.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/17954-39786608053ea4d7.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/68338-07d08ff8922c2952.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/39122-7caae4dd6b3aec1f.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/30950-cbcdd8ef94c74950.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/39920-fa79cb88d819b010.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/79249-813f3b2f9f9f43c5.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/10548-651a6a73594a6738.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/98236-a3228910aa4dc7f5.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/93005-fdeecac19bfc301f.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/86861-c9b5627149c4d6be.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/60938-9b5ae2ac5e5d3957.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/63275-4f810ecb1d892f1b.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/75126-45d1c049f6d30d9e.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/46924-1a3f2b84346592db.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/64312-00a7e3da5854b44b.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/62028-433b36d875f1c1b7.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/24139-07a56596cc068664.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/67534-694d77248f71ca0b.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/4558-62803d44fcf445db.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/27065-eedfb341100191e1.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/41207-d5cc0184aa63ae14.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/80796-51ec47380b77e419.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/62011-233386fdba3e183d.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/chunks/pages/dashboard-85294791ebe15e2d.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/3r0GFWlRrCQVdYm0ailud/_buildManifest.js"
+			defer=""
+		></script>
+		<script
+			src="/_next/static/3r0GFWlRrCQVdYm0ailud/_ssgManifest.js"
+			defer=""
+		></script>
+		<style id="__jsx-2945625477">
+			@media screen and (min-width: 961px) {
+				.stack.jsx-2945625477 > * + * {
+					margin-top: 24px;
+				}
+			}
+			@media screen and (min-width: 601px) and (max-width: 960px) {
+				.stack.jsx-2945625477 > * + * {
+					margin-top: 24px;
+				}
+			}
+			@media screen and (max-width: 600px) {
+				.stack.jsx-2945625477 > * + * {
+					margin-top: 24px;
+				}
+			}
+		</style>
+		<style id="__jsx-2923788466">
+			@media screen and (min-width: 961px) {
+				.stack.jsx-2923788466 > * + * {
+				}
+			}
+			@media screen and (min-width: 601px) and (max-width: 960px) {
+				.stack.jsx-2923788466 > * + * {
+				}
+			}
+			@media screen and (max-width: 600px) {
+				.stack.jsx-2923788466 > * + * {
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<a
+			class="geist-sr-only"
+			href="#reach-skip-nav"
+			data-reach-skip-link=""
+			data-reach-skip-nav-link=""
+			>Skip to content</a
+		>
+		<div id="__next">
+			<div class="geist-page">
+				<span class="dark-theme invert-theme"></span>
+				<div class="screen_geist_screen__JT1Q7">
+					<nav class="dashboard_nav__PRmJv">
+						<div class="dashboard_scope__tiGGH">
+							<ol
+								class="breadcrumb_breadcrumbs__Lr0vj"
+								data-geist-breadcrumb-list=""
+							>
+								<li
+									class="breadcrumb_item__hlafw breadcrumb_fixed__Y5ZDx"
+									data-geist-breadcrumb-item=""
+								>
+									<a class="dashboard_logo__uTK3P" href="/dashboard"
+										><svg
+											data-testid="dashboard/logo"
+											aria-label="Vercel Logo"
+											fill="var(--geist-foreground)"
+											height="26"
+											viewBox="0 0 75 65"
+										>
+											<path d="M37.59.25l36.95 64H.64l36.95-64z"></path></svg
+									></a>
+								</li>
+							</ol>
+						</div>
+					</nav>
+					<div class="submenu">
+						<nav class="sub-menu_nav__d_T5K">
+							<div class="sub-menu_menu-wrap__ifqFU">
+								<div class="sub-menu_menu__UzGYN">
+									<div class="sub-menu_menu-inner__WsNh1">
+										<div class="sub-menu_logo__x2Hsj">
+											<svg
+												aria-label="Vercel Logo"
+												fill="var(--geist-foreground)"
+												viewBox="0 0 75 65"
+												width="20"
+											>
+												<path d="M37.59.25l36.95 64H.64l36.95-64z"></path>
+											</svg>
+										</div>
+										<div class="sub-menu_menu-content__tgdWs">
+											<div class="sub-menu-tabs_parent__OfImk">
+												<div
+													aria-hidden="true"
+													class="sub-menu-tabs_highlight__l96_C"
+												></div>
+												<a
+													data-testid="submenu/overview"
+													class="link_link__LTNaQ sub-menu-tabs_tab__mXV2g sub-menu-tabs_active__DKAiI"
+													href="/dashboard"
+													>Overview</a
+												><a
+													data-testid="submenu/integrations"
+													class="link_link__LTNaQ sub-menu-tabs_tab__mXV2g"
+													href="/dashboard/integrations"
+													>Integrations</a
+												><a
+													data-testid="submenu/activity"
+													class="link_link__LTNaQ sub-menu-tabs_tab__mXV2g"
+													href="/dashboard/activity"
+													>Activity</a
+												><a
+													data-testid="submenu/domains"
+													class="link_link__LTNaQ sub-menu-tabs_tab__mXV2g"
+													href="/dashboard/domains"
+													>Domains</a
+												><a
+													data-testid="submenu/usage"
+													class="link_link__LTNaQ sub-menu-tabs_tab__mXV2g"
+													href="/dashboard/usage"
+													>Usage</a
+												><a
+													data-testid="submenu/settings"
+													class="link_link__LTNaQ sub-menu-tabs_tab__mXV2g"
+													href="/account"
+													>Settings</a
+												>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</nav>
+					</div>
+					<div id="reach-skip-nav" data-reach-skip-nav-content=""></div>
+					<div class="dashboard-container">
+						<div
+							data-version="v1"
+							style="
+								--flex: initial;
+								--direction: column;
+								--align: stretch;
+								--justify: flex-start;
+							"
+							class="jsx-2923788466 stack_stack__A16oG stack projects_gray__av01h"
+						>
+							<div class="geist-wrapper">
+								<div
+									data-version="v1"
+									style="
+										margin-top: var(--geist-space-gap);
+										margin-bottom: var(--geist-space-large);
+										--flex: initial;
+										--direction: column;
+										--align: stretch;
+										--justify: flex-start;
+									"
+									class="jsx-2945625477 stack_stack__A16oG stack"
+								></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--$-->
+				<footer
+					class="footer_footer__CQcPM footer_light__bBgwQ"
+					data-version="v1"
+				>
+					<nav aria-label="Vercel Directory" role="navigation">
+						<div class="footer_logotype__Y2l5z">
+							<a href="/home"
+								><svg
+									aria-label="Vercel Inc."
+									fill="var(--geist-foreground)"
+									height="20"
+									role="img"
+									viewBox="0 0 283 64"
+								>
+									<path
+										d="M37 0l37 64H0L37 0zM159.6 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7h28.3c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM267.3 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7H267c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM219.3 28.3l6.8-3.9c-3.2-5-8.9-7.8-15.8-7.8-10.9 0-18.5 7.2-18.5 17.5s7.6 17.5 18.5 17.5c6.9 0 12.6-2.8 15.8-7.8l-6.8-3.9c-1.8 3-5 4.7-9 4.7-6.3 0-10.5-4.2-10.5-10.5s4.2-10.5 10.5-10.5c3.9 0 7.2 1.7 9 4.7zM282.3 5.6h-8v45h8v-45zM128.5 5.6h-9.2L101.7 36 84.1 5.6h-9.3L101.7 52l26.8-46.4zM185.1 25.8c.9 0 1.8.1 2.7.3v-8.5c-6.8.2-13.2 4-13.2 8.7v-8.7h-8v33h8V36.3c0-6.2 4.3-10.5 10.5-10.5z"
+									></path></svg
+							></a>
+						</div>
+						<div class="footer_group__2SKZl">
+							<input
+								aria-label="Open Navigation Menu"
+								class="footer_hidden__027FV reset_visuallyHidden__Epm6x"
+								id="footer-group-:R4rmb8m:"
+								type="checkbox"
+							/><label for="footer-group-:R4rmb8m:"><h3>Frameworks</h3></label>
+							<ul class="footer_list__St1yh">
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/solutions/nextjs"
+										>Next.js</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/solutions/react"
+										>Create React App</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/solutions/svelte"
+										>Svelte</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										href="/guides/deploying-nuxtjs-with-vercel"
+										rel="noopener"
+										target="_blank"
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										>Nuxt<!-- --></a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/solutions/gatsby"
+										>Gatsby</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/solutions/vue"
+										>Vue</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/solutions/angular"
+										>Angular</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/templates"
+										>More Frameworks</a
+									>
+								</li>
+							</ul>
+						</div>
+						<div class="footer_group__2SKZl">
+							<input
+								aria-label="Open Navigation Menu"
+								class="footer_hidden__027FV reset_visuallyHidden__Epm6x"
+								id="footer-group-:R6rmb8m:"
+								type="checkbox"
+							/><label for="footer-group-:R6rmb8m:"><h3>Resources</h3></label>
+							<ul class="footer_list__St1yh">
+								<li class="footer_item__RjypT">
+									<a class="link_link__LTNaQ link_secondary__Htj2D" href="/docs"
+										>Documentation</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/experts"
+										>Experts</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/customers"
+										>Customers</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/guides"
+										>Guides</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a class="link_link__LTNaQ link_secondary__Htj2D" href="/help"
+										>Help</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										href="/docs/api"
+										rel="noopener"
+										target="_blank"
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										>API Reference<!-- --></a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a class="link_link__LTNaQ link_secondary__Htj2D" href="/oss"
+										>OSS</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										href="/cli"
+										rel="noopener"
+										target="_blank"
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										>Command-Line<!-- --></a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/integrations"
+										>Integrations</a
+									>
+								</li>
+							</ul>
+						</div>
+						<div class="footer_group__2SKZl">
+							<input
+								aria-label="Open Navigation Menu"
+								class="footer_hidden__027FV reset_visuallyHidden__Epm6x"
+								id="footer-group-:R8rmb8m:"
+								type="checkbox"
+							/><label for="footer-group-:R8rmb8m:"><h3>Company</h3></label>
+							<ul class="footer_list__St1yh">
+								<li class="footer_item__RjypT">
+									<a class="link_link__LTNaQ link_secondary__Htj2D" href="/home"
+										>Home</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a class="link_link__LTNaQ link_secondary__Htj2D" href="/blog"
+										>Blog</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/changelog"
+										>Changelog</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/about"
+										>About</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/careers"
+										>Careers</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/pricing"
+										>Pricing</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/enterprise"
+										>Enterprise</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/security"
+										>Security</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										href="https://nextjs.org/conf"
+										rel="noopener"
+										target="_blank"
+										class="link_link__LTNaQ link_external__NODW5 link_secondary__Htj2D"
+										>Next.js Conf<!-- --><svg
+											data-testid="geist-icon"
+											fill="none"
+											height="1em"
+											shape-rendering="geometricPrecision"
+											stroke="currentColor"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="1.5"
+											viewBox="0 0 24 24"
+											width="1em"
+											class="link_externalIcon__lLA3x"
+											style="color: currentColor"
+										>
+											<path
+												d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+											/>
+											<path d="M15 3h6v6" />
+											<path d="M10 14L21 3" /></svg
+									></a>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/partners"
+										>Partners</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/contact"
+										>Contact Us</a
+									>
+								</li>
+							</ul>
+						</div>
+						<div class="footer_group__2SKZl">
+							<input
+								aria-label="Open Navigation Menu"
+								class="footer_hidden__027FV reset_visuallyHidden__Epm6x"
+								id="footer-group-:Rarmb8m:"
+								type="checkbox"
+							/><label for="footer-group-:Rarmb8m:"><h3>Legal</h3></label>
+							<ul class="footer_list__St1yh">
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/privacy-policy"
+										>Privacy Policy</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/terms"
+										>Terms of Service</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/trademark-policy"
+										>Trademark Policy</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/inactivity-policy"
+										>Inactivity Policy</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/dmca-policy"
+										>DMCA Policy</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/support-terms"
+										>Support Terms</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/dpa"
+										>DPA</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/sla"
+										>SLA</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/sub-processors"
+										>Sub-processors</a
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<span
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										role="link"
+										tabindex="0"
+										>Cookie Preferences</span
+									>
+								</li>
+								<li class="footer_item__RjypT">
+									<a
+										class="link_link__LTNaQ link_secondary__Htj2D"
+										href="/legal/event-terms-conditions"
+										>Event Terms and Conditions</a
+									>
+								</li>
+							</ul>
+						</div>
+					</nav>
+					<section>
+						<div class="footer_wrapper__z6ZwQ">
+							<span class="footer_copyright__nFXY7"
+								><span>Copyright</span> ©
+								<!-- -->2022<!-- -->
+								<!-- -->Vercel<!-- -->
+								Inc. All rights reserved.<!-- --></span
+							><span class="footer_contact__5lVzo"
+								><ul class="footer_social__TS_hG">
+									<li>
+										<a
+											aria-label="GitHub"
+											class="footer_github__rmvAM"
+											href="https://github.com/vercel"
+											rel="noopener"
+											target="_blank"
+											><svg
+												aria-label="github"
+												height="19"
+												viewBox="0 0 14 14"
+												width="19"
+											>
+												<path
+													d="M7 .175c-3.872 0-7 3.128-7 7 0 3.084 2.013 5.71 4.79 6.65.35.066.482-.153.482-.328v-1.181c-1.947.415-2.363-.941-2.363-.941-.328-.81-.787-1.028-.787-1.028-.634-.438.044-.416.044-.416.7.044 1.071.722 1.071.722.635 1.072 1.641.766 2.035.59.066-.459.24-.765.437-.94-1.553-.175-3.193-.787-3.193-3.456 0-.766.262-1.378.721-1.881-.065-.175-.306-.897.066-1.86 0 0 .59-.197 1.925.722a6.754 6.754 0 0 1 1.75-.24c.59 0 1.203.087 1.75.24 1.335-.897 1.925-.722 1.925-.722.372.963.131 1.685.066 1.86.46.48.722 1.115.722 1.88 0 2.691-1.641 3.282-3.194 3.457.24.219.481.634.481 1.29v1.926c0 .197.131.415.481.328C11.988 12.884 14 10.259 14 7.175c0-3.872-3.128-7-7-7z"
+													fill="currentColor"
+													fill-rule="nonzero"
+												></path></svg
+										></a>
+									</li>
+									<li>
+										<a
+											aria-label="Twitter"
+											class="footer_bird__3RjDI"
+											href="https://twitter.com/vercel"
+											rel="noopener"
+											target="_blank"
+											><svg
+												aria-label="twitter"
+												fill="currentColor"
+												height="16"
+												viewBox="0 0 18 15"
+											>
+												<path
+													d="M18 1.684l-1.687 1.684v.28c0 .307-.05.602-.123.886-.04 2.316-.777 5.387-3.816 7.81C6.404 17.115 0 12.907 0 12.907c5.063 0 5.063-1.684 5.063-1.684-1.126 0-3.376-2.243-3.376-2.243.563.56 1.689 0 1.689 0C.56 7.295.56 5.61.56 5.61c.563.561 1.689 0 1.689 0C-.563 3.368 1.124.561 1.124.561 1.687 3.368 9 4.49 9 4.49l.093-.046A6.637 6.637 0 0 1 9 3.368C9 1.353 10.636 0 12.656 0c1.112 0 2.094.506 2.765 1.286l.329-.163L17.437 0l-1.122 2.245L18 1.684z"
+													fill-rule="nonzero"
+												></path></svg
+										></a>
+									</li></ul
+							></span>
+							<div class="footer_status__c98JS"></div>
+							<div class="footer_theme-switcher__kGZC9"></div>
+						</div>
+					</section>
+				</footer>
+				<!--/$-->
+			</div>
+		</div>
+		<script id="__NEXT_DATA__" type="application/json">
+			{
+				"props": { "pageProps": {} },
+				"page": "/dashboard",
+				"query": {},
+				"buildId": "3r0GFWlRrCQVdYm0ailud",
+				"nextExport": true,
+				"autoExport": true,
+				"isFallback": false,
+				"scriptLoader": []
+			}
+		</script>
+	</body>
+</html>

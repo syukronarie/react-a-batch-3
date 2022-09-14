@@ -19,3 +19,8 @@
 | 15  | Erwin            | Background images             |
 | 16  | Zhafran          | Responsive (media-queries)    |
 | 17  | Hafizh           | Background color              |
+
+references:
+https://www.freecodecamp.org/news/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849/
+https://dev.to/xavortm/css-naming-conventions-nen
+https://web.dev/state-of-css-2022/
