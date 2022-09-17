@@ -20,7 +20,15 @@ const fetchPosts2 = async () => {
 			})
 			.catch((err) => reject(err));
 	});
-	return result;
+	const result2 = await new Promise((resolve, reject) => {
+		axios
+			.get(url)
+			.then((res) => {
+				resolve(res.data);
+			})
+			.catch((err) => reject(err));
+	});
+	return { result, result2 };
 };
 
 (async () => {
