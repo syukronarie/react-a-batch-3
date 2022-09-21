@@ -1,0 +1,13 @@
+.App {
+	position: relative;
+	height: 100vh;
+	font-family: "Varela Round", sans-serif;
+	width: 80%;
+	margin: auto;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
