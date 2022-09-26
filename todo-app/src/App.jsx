@@ -2,13 +2,14 @@ import React from "react";
 import Banner from "./components/Banner/Banner";
 import SetupRouters from "./routes/SetupRouters";
 import "./App.css";
+import { ThemeProvider } from "./context/ThemeProvider";
 
 const App = () => {
 	return (
-		<div className="App">
+		<ThemeProvider className="App">
 			<Banner />
 			<SetupRouters />
-		</div>
+		</ThemeProvider>
 	);
 };
 
