@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import AddInput from "../AddInput/AddInput";
 import Header from "../Header/Header";
 import TodoList from "../TodoList/TodoList";
@@ -9,6 +10,7 @@ const TODOS = [
 ];
 
 const Todo = () => {
+	const navigate = useNavigate();
 	const [todos, setTodos] = useState(TODOS);
 
 	const addTodo = (title) => {
@@ -32,6 +34,10 @@ const Todo = () => {
 			<Header title="Todo Page" />
 			<AddInput addTodo={addTodo} />
 			<TodoList todos={todos} deleteTodo={deleteTodo} />
+
+			<Link to="/inputfile">
+				<button>Go To Input File </button>
+			</Link>
 		</div>
 	);
 };
