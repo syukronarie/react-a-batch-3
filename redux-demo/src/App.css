@@ -54,3 +54,31 @@
 	height: 120px;
 	width: 120px;
 }
+
+.navbar-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.cart-items {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	width: 500px;
+	height: auto;
+	position: absolute;
+	top: 50px;
+	right: 0;
+	background-color: bisque;
+}
+
+.form-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100vh;
+}
