@@ -11,15 +11,20 @@ const Navbar = () => {
 
 	return (
 		<div className="navbar-container">
-			<h1>EC</h1>
+			<Link to="/">
+				<h1>EC</h1>
+			</Link>
 			<div className="cart" onMouseEnter={() => setShowProductList(true)}>
 				<span>{cart.totalProduct}</span>
 				<Link to="/cart">
 					<img srcSet={iconCartSvg} alt="cart-icon" width="25px" />
 				</Link>
-				{Auth.isAuthorization() && (
+				{Auth.isAuthorization() ? (
 					<button onClick={() => Auth.signOut(navigate)}>Sign Out</button>
+				) : (
+					<Link to="/login">Login</Link>
 				)}
+				<Link to="/profile">Profile</Link>
 			</div>
 			{showProductList && cart.data !== 0 && (
 				<div
