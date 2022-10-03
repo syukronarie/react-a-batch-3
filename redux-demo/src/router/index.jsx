@@ -6,6 +6,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import PrivateRoute from "./PrivateRoute";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
+import Profile from "../components/Profile";
 
 const SetupRouter = () => {
 	return (
@@ -16,6 +17,7 @@ const SetupRouter = () => {
 				</Route>
 				<Route path="/" element={<PrivateRoute />}>
 					<Route path="/cart" element={<h1>Welcome to Cart Page</h1>} />
+					<Route path="/profile" element={<Profile />} />
 				</Route>
 				<Route path="/" element={<ProtectedRoute />}>
 					<Route path="/register" element={<SignUpPage />} />
