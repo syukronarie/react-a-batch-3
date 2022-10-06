@@ -4,9 +4,10 @@ body {
   background-color: #d9d9d9;
 }
 
-.container-post {
+.container-card {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .card {
@@ -30,6 +31,11 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 10px 0px;
+}
+
+p {
+  margin: 10px;
 }
 
 .card .profile-name {
@@ -47,4 +53,69 @@ body {
 .date-upload {
   font-size: smaller;
   text-align: end;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  color: #33293e;
+}
+
+.container-post {
+  width: 78vw;
+  position: absolute;
+  padding-left: 17px;
+  right: 0;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.sidebar {
+  min-width: 22vw;
+  background-color: #697de7;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.heading {
+  padding: 12px;
+}
+
+.nav-list {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 28px;
+}
+
+.nav-list h3 {
+  margin-top: 6px;
+  padding-left: 12px;
+}
+
+.active {
+  background-color: #9acce9;
+}
+
+.nav-list ul li {
+  list-style: none;
+  font-weight: 600;
+}
+
+.nav-list ul li a {
+  display: block;
+  width: 100%;
+  padding: 6px 24px;
+  text-decoration: none;
+}
+
+.nav-list ul li a:hover {
+  background-color: #9acce9;
 }
