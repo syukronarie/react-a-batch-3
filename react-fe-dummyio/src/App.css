@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+	display: grid;
+	grid-template-columns: 300px 300px 300px;
+	grid-gap: 50px;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f5f5f5;
+	font-family: "Baloo Paaji 2", cursive;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+	background-color: #222831;
+	height: 37rem;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.7);
+	color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card__name {
+	margin-top: 15px;
+	font-size: 1.5em;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card__image {
+	height: 160px;
+	width: 160px;
+	border-radius: 50%;
+	border: 5px solid #272133;
+	margin-top: 20px;
+	box-shadow: 0 10px 50px rgba(235, 25, 110, 1);
 }
