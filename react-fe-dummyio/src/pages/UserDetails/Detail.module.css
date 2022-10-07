@@ -1,0 +1,36 @@
+.content {
+	padding: 50px;
+	background-color: #d9d9d9;
+	width: 75%;
+	height: 100vh;
+}
+
+.container {
+	padding: 10px;
+	background-color: white;
+}
+
+.bloksatu {
+	padding: 10px;
+}
+
+.bloksatuanak {
+	display: inline-block;
+}
+
+.bloksatuanak span {
+	padding: 5px;
+	display: block;
+}
+
+.blokdua {
+	padding: 10px;
+}
+
+.blokdua div {
+	color: #afabb2;
+}
+
+.blokdua span {
+	margin-bottom: 10px;
+}

@@ -5,7 +5,7 @@ import UsersItem from "../UsersItem/UsersItem";
 
 function UsersLists() {
 	const users = useSelector((state) => state.users);
-	
+
 	const dispatch = useDispatch();
 
 	useEffect(() => {
