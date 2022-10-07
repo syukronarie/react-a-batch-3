@@ -5,7 +5,7 @@ import { fetchUserByID } from "../../store/features/usersSlice";
 import styles from "../UserDetails/Detail.module.css";
 
 const UserDetails = () => {
-	const currentUser = useSelector((state) => state.users);
+	const currentUser = useSelector((state) => state.users.currentUser);
 	const dispatch = useDispatch();
 	const { id } = useParams();
 
@@ -13,35 +13,34 @@ const UserDetails = () => {
 		dispatch(fetchUserByID(id));
 	}, [dispatch, id]);
 
-	console.log(currentUser.data.firstName);
 	return (
 		<>
 			<div className={styles.content}>
 				<h1>User Details</h1>
 				<div className={styles.container}>
 					<div className={styles.bloksatu}>
-						<img style={{ width: 200 }} src={currentUser.data.picture} alt="profile" />
+						<img style={{ width: 200 }} src={currentUser.picture} alt="profile" />
 						<div className={styles.bloksatuanak}>
 							<span>
 								<strong>
-									{currentUser.data.title} {currentUser.data.firstName} {currentUser.data.lastName}
+									{currentUser.title} {currentUser.firstName} {currentUser.lastName}
 								</strong>
 							</span>
-							<span>{currentUser.data.email}</span>
+							<span>{currentUser.email}</span>
 							<span>
 								<strong>
-									{currentUser.data.city}, {currentUser.data.state}
+									{currentUser.location.city}, {currentUser.location.state}
 								</strong>
 							</span>
 						</div>
 					</div>
 					<div className={styles.blokdua}>
 						<div>Gender</div>
-						<span>{currentUser.data.gender}</span>
+						<span>{currentUser.gender}</span>
 						<div>Date of Birth</div>
-						<span>{currentUser.data.dateOfBirth}</span>
+						<span>{currentUser.dateOfBirth}</span>
 						<div>Phone</div>
-						<span>{currentUser.data.phone}</span>
+						<span>{currentUser.phone}</span>
 					</div>
 					<div className={styles.buttonContainer}>
 						<Link className={styles.buttonBack} to="/user">

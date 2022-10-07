@@ -17,7 +17,8 @@ const APIUser = {
 
 	async getUserById(id) {
 		try {
-			return await axiosInstance.get(`/user/${id}`);
+			const res = await axiosInstance.get(`/user/${id}`);
+			return res;
 		} catch (error) {
 			const { message } = error.response.data;
 			throw new Error(message);
@@ -32,6 +33,20 @@ const APIUser = {
 		} catch (error) {
 			const { message } = error.response;
 			throw new Error(message);
+		}
+	},
+	async updateUser(id, data) {
+		try {
+			// const config = {
+			// 	body: {
+			// 		data
+			// 	},
+			// };
+			const res = await axiosInstance.put(`/user/${id}`, data);
+			console.log(res);
+			return res;
+		} catch (err) {
+			console.log(err.response);
 		}
 	},
 };
