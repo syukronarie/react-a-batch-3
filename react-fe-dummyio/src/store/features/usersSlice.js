@@ -11,7 +11,6 @@ const initialState = {
 export const fetchAllUsers = createAsyncThunk("fetch/allusers", async () => {
 	try {
 		const response = await APIUser.getAllUsers(10);
-		console.log({ response });
 		return response.data;
 	} catch (error) {
 		console.log(error);
@@ -28,30 +27,47 @@ export const fetchUserByID = createAsyncThunk("fetch/user/byid", async (id) => {
 	}
 });
 
-export const createUser = createAsyncThunk("create/user", async ({ title, firstName, lastName, email, picture }) => {
-	try {
-		const response = await APIUser.createUser({ title, firstName, lastName, email, picture });
-		console.log({ response });
-		return response.data;
-	} catch (error) {
-		console.log(error.response);
+export const createUser = createAsyncThunk(
+	"create/user",
+	async ({ title, firstName, lastName, email, picture }) => {
+		try {
+			const response = await APIUser.createUser({
+				title,
+				firstName,
+				lastName,
+				email,
+				picture,
+			});
+			return response.data;
+		} catch (error) {
+			console.log(error.response);
+		}
 	}
-});
-export const updateUser = createAsyncThunk("update/user", async (id, { title, firstName, lastName, picture }) => {
-	try {
-		const res = await APIUser.updateUser(id, {
-			body: {
+);
+export const updateUser = createAsyncThunk(
+	"update/user",
+	async ({ id, title, firstName, lastName, picture }) => {
+		console.log({
+			id,
+			title,
+			firstName,
+			lastName,
+			picture,
+		});
+		try {
+			const res = await APIUser.updateUser({
+				id,
 				title,
 				firstName,
 				lastName,
 				picture,
-			},
-		});
-		return res;
-	} catch (err) {
-		console.log(err.response);
+			});
+			return res;
+		} catch (err) {
+			console.log(err.response);
+		}
 	}
-});
+);
 
 const usersSlice = createSlice({
 	name: "users",

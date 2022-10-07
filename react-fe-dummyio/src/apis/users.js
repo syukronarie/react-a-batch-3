@@ -35,14 +35,16 @@ const APIUser = {
 			throw new Error(message);
 		}
 	},
-	async updateUser(id, data) {
+	async updateUser(data) {
 		try {
-			// const config = {
-			// 	body: {
-			// 		data
-			// 	},
-			// };
-			const res = await axiosInstance.put(`/user/${id}`, data);
+			const id = data.id;
+			const { firstName, lastName, title, picture } = data;
+			const res = await axiosInstance.put(`/user/${id}`, {
+				firstName,
+				lastName,
+				title,
+				picture,
+			});
 			console.log(res);
 			return res;
 		} catch (err) {

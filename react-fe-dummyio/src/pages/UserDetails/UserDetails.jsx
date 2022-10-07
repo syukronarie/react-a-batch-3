@@ -19,19 +19,24 @@ const UserDetails = () => {
 				<h1>User Details</h1>
 				<div className={styles.container}>
 					<div className={styles.bloksatu}>
-						<img style={{ width: 200 }} src={currentUser.picture} alt="profile" />
+						<img
+							style={{ width: 200 }}
+							src={currentUser.picture}
+							alt="profile"
+						/>
 						<div className={styles.bloksatuanak}>
 							<span>
 								<strong>
-									{currentUser.title} {currentUser.firstName} {currentUser.lastName}
+									{currentUser.title} {currentUser.firstName}{" "}
+									{currentUser.lastName}
 								</strong>
 							</span>
 							<span>{currentUser.email}</span>
-							<span>
+							{/* <span>
 								<strong>
 									{currentUser.location.city}, {currentUser.location.state}
 								</strong>
-							</span>
+							</span> */}
 						</div>
 					</div>
 					<div className={styles.blokdua}>
