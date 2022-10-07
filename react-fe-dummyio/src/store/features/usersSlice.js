@@ -17,13 +17,23 @@ export const fetchAllUsers = createAsyncThunk("fetch/allusers", async () => {
 	}
 });
 
-export const fetchUserByID = createAsyncThunk("fetch/user/byid", async ({ id }) => {
+export const fetchUserByID = createAsyncThunk("fetch/user/byid", async (id) => {
 	try {
-		const response = await APIUser.getUserById({ id });
+		const response = await APIUser.getUserById(id);
 		console.log({ response });
 		return response.data;
 	} catch (error) {
 		console.log(error);
+	}
+});
+
+export const createUser = createAsyncThunk("create/user", async ({ title, firstName, lastName, email, picture }) => {
+	try {
+		const response = await APIUser.createUser({ title, firstName, lastName, email, picture });
+		console.log({ response });
+		return response.data;
+	} catch (error) {
+		console.log(error.response);
 	}
 });
 
@@ -45,7 +55,16 @@ const usersSlice = createSlice({
 			})
 			.addCase(fetchUserByID.fulfilled, (state, action) => {
 				state.status = "succeeded";
-				state.data = [...action.payload];
+				state.data = action.payload;
+			})
+			.addCase(createUser.fulfilled, (state, action) => {
+				state.status = "succeeded";
+				state.data.push(action.payload);
+			})
+			.addCase(createUser.rejected, (state, action) => {
+				state.status = "failed";
+				state.error = action.error.message;
+				console.log(state.error);
 			});
 	},
 });

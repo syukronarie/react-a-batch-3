@@ -7,7 +7,7 @@ function UsersItem({ user }) {
 			<div className="card-user">
 				<img src={user.picture} alt="Person" className="card__image" />
 				<p className="card__name">
-					{user.firstName} {user.lastName}
+					{user.title}. {user.firstName} {user.lastName}
 				</p>
 				<div className="button__group">
 					<Link className="button__detail" to={`/user/${user.id}`}>

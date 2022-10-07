@@ -23,6 +23,17 @@ const APIUser = {
 			throw new Error(message);
 		}
 	},
+
+	async createUser(data) {
+		try {
+			const response = await axiosInstance.post("/user/create", data);
+			console.log(response);
+			return response;
+		} catch (error) {
+			const { message } = error.response;
+			throw new Error(message);
+		}
+	},
 };
 
 export default APIUser;

@@ -14,7 +14,7 @@ function UsersLists() {
 
 	return (
 		<div className="container-user-list">
-			{users.data.data.map((user) => (
+			{users.data.data?.map((user) => (
 				<UsersItem key={user.id} user={user} />
 			))}
 		</div>

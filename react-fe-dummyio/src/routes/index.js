@@ -4,6 +4,7 @@ import UpdateUser from "../pages/UpdateUser";
 import PostHome from "../pages/post";
 import UsersPage from "../pages/UsersPage";
 import UserDetails from "../pages/UserDetails/UserDetails";
+import CreateUser from "../pages/CreateUser";
 
 const WebRoutes = () => {
 	return (
@@ -12,6 +13,7 @@ const WebRoutes = () => {
 				<Route path="/" element={<Layout />}>
 					<Route path="/user" element={<UsersPage />} />
 					<Route path="/user/:id" element={<UserDetails />} />
+					<Route path="/user/create" element={<CreateUser />} />
 					<Route path="/user/edit/:id" element={<UpdateUser />} />
 					<Route path="/post" element={<PostHome />} />
 				</Route>
