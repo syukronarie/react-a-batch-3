@@ -13,7 +13,7 @@ function UsersLists() {
 	}, [dispatch]);
 
 	return (
-		<div className="container">
+		<div className="container-user-list">
 			{users.data.data.map((user) => (
 				<UsersItem key={user.id} user={user} />
 			))}
