@@ -1,0 +1,53 @@
+.content {
+	padding: 50px;
+	background-color: #d9d9d9;
+	height: 100vh;
+	position: absolute;
+	right: 0;
+	width: 75%;
+	margin: 0 auto;
+}
+
+.container {
+	padding: 10px;
+	background-color: white;
+}
+
+.bloksatu {
+	padding: 10px;
+}
+
+.bloksatuanak {
+	display: inline-block;
+}
+
+.bloksatuanak span {
+	padding: 5px;
+	display: block;
+}
+
+.blokdua {
+	padding: 10px;
+}
+
+.blokdua div {
+	color: #afabb2;
+}
+
+.blokdua span {
+	margin-bottom: 10px;
+}
+
+.buttonContainer {
+	padding: 10px;
+}
+
+.buttonBack {
+	color: white;
+	outline: none;
+	text-decoration: none;
+	text-align: center;
+	background-color: #212121;
+	border-radius: 20px;
+	padding: 10px 20px;
+}
