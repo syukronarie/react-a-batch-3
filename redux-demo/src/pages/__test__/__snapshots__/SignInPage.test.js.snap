@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInPage Testing 1`] = `
+<div>
+  <div>
+    <form
+      class="form-container"
+    >
+      <label
+        for="email"
+      >
+        Email
+      </label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+      />
+      <label
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+      />
+      <button
+        type="submit"
+      >
+        Sign In
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`SignInPage Testing SignInPage Snapshot 1`] = `
+<div>
+  <div>
+    <form
+      class="form-container"
+    >
+      <label
+        for="email"
+      >
+        Email
+      </label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+      />
+      <label
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+      />
+      <button
+        data-testid="button-submit"
+        type="submit"
+      >
+        Sign In
+      </button>
+    </form>
+  </div>
+</div>
+`;

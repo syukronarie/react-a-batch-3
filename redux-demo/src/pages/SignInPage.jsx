@@ -10,7 +10,7 @@ const SignInPage = () => {
 		const formData = new FormData(e.target);
 		const email = formData.get("email");
 		const password = formData.get("password");
-		APIAuth.signin({ email, password })
+		await APIAuth.signin({ email, password })
 			.then((result) => {
 				result.data.success && navigate("/");
 			})
@@ -26,7 +26,9 @@ const SignInPage = () => {
 				<input type="email" name="email" id="email" />
 				<label htmlFor="password">Password</label>
 				<input type="password" name="password" id="password" />
-				<button type="submit">Sign In</button>
+				<button type="submit" data-testid="button-submit">
+					Sign In
+				</button>
 				<Link to="/register">Register</Link>
 			</form>
 		</div>
